@@ -46,17 +46,20 @@
     <div class="container mx-auto flex justify-between items-center px-6 py-4">
       <a href="index.html" class="text-3xl font-extrabold text-blue-700 flex items-center gap-2">
         🎣 Flex Your Catch
-      </a>
-      <ul class="hidden md:flex space-x-6 text-blue-700 font-semibold">
-        <li><a href="index.html" class="hover:underline">Home</a></li>
-        <li><a href="catches.html" class="underline font-bold">Catches</a></li>
-        <li><a href="submit.html" class="hover:underline">Submit</a></li>
-        <li><a href="about.html" class="hover:underline">About</a></li>
-        <li><a href="contact.html" class="hover:underline">Contact</a></li>
-		<li><a href="leaderboard.html" class="hover:underline">Leaderboard</a></li>
+      <!-- Desktop Nav -->
+      <ul class="hidden md:flex space-x-6 text-blue-700 font-semibold items-center">
+        <li><a href="index.html" class="nav-link nav-link-active">Home</a></li>
+        <li><a href="catches.html" class="nav-link hover:underline">Catches</a></li>
+        <li><a href="about.html" class="nav-link hover:underline">About</a></li>
+        <li><a href="contact.html" class="nav-link hover:underline">Contact</a></li>
+        <li><a href="leaderboard.html" class="nav-link hover:underline">Leaderboard</a></li>
+        <!-- Fancy Submit Button in navbar -->
+        <li>
+          <a href="submit.html" class="btn-primary">
+            📸 Submit Your Catch
+          </a>
+        </li>
       </ul>
-    </div>
-  </nav>
 
   <!-- Header -->
   <header class="mt-24 mb-10 text-center fade-in">
