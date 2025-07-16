@@ -2,53 +2,45 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Flex Your Catch - Catches</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    ::-webkit-scrollbar {
-      width: 8px;
-    }
-    ::-webkit-scrollbar-track {
-      background: #e0f2fe;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: #0284c7;
-      border-radius: 9999px;
-    }
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeInUp 0.7s ease-out forwards;
-    }
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #e0f2fe; }
+    ::-webkit-scrollbar-thumb { background: #0284c7; border-radius: 9999px; }
+
     .btn-filter {
-      background-color: #bfdbfe; /* Tailwind bg-blue-200 */
-      color: #1e40af; /* Tailwind text-blue-900 */
+      background-color: #bfdbfe; /* light blue */
+      color: #1e40af; /* dark blue */
       padding: 0.5rem 1rem;
-      border-radius: 0.375rem; /* rounded-md */
+      border-radius: 0.375rem;
       cursor: pointer;
-      transition: background-color 0.3s ease;
+      transition: background-color 0.3s;
+      user-select: none;
     }
     .btn-filter:hover {
-      background-color: #93c5fd; /* Tailwind bg-blue-300 */
+      background-color: #93c5fd;
     }
     .btn-filter-active {
-      background-color: #2563eb; /* Tailwind bg-blue-600 */
+      background-color: #2563eb;
       color: white;
+    }
+    .card {
+      background: white;
+      border-radius: 1rem;
+      box-shadow: 0 2px 10px rgb(0 0 0 / 0.1);
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
     }
     .card:hover {
       transform: translateY(-6px);
-      box-shadow: 0 10px 20px rgba(2, 132, 199, 0.4);
+      box-shadow: 0 10px 20px rgba(2,132,199,0.4);
     }
   </style>
 </head>
-<body class="bg-blue-50 text-gray-800 font-sans">
+<body class="bg-blue-50 font-sans">
 
   <!-- Navbar -->
   <nav class="fixed top-0 left-0 w-full bg-white shadow-md z-50">
@@ -56,70 +48,59 @@
       <a href="index.html" class="text-3xl font-extrabold text-blue-700 flex items-center gap-2">
         🎣 Flex Your Catch
       </a>
-
-      <!-- Desktop Nav -->
       <ul class="hidden md:flex space-x-6 text-blue-700 font-semibold items-center">
-        <li><a href="index.html" class="nav-link nav-link-active">Home</a></li>
-        <li><a href="catches.html" class="nav-link hover:underline">Catches</a></li>
-        <li><a href="about.html" class="nav-link hover:underline">About</a></li>
-        <li><a href="contact.html" class="nav-link hover:underline">Contact</a></li>
-        <li><a href="leaderboard.html" class="nav-link hover:underline">Leaderboard</a></li>
-        <li><a href="Sponsors.html" class="underline font-bold">Sponsors</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="catches.html" class="underline font-bold">Catches</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="leaderboard.html">Leaderboard</a></li>
+        <li><a href="Sponsors.html">Sponsors</a></li>
         <li>
-          <a href="submit.html" class="btn-primary">
-            📸 Submit Your Catch
-          </a>
+          <a href="submit.html" class="bg-blue-600 text-white px-4 py-2 rounded-full font-semibold">📸 Submit Your Catch</a>
         </li>
       </ul>
 
       <!-- Mobile Menu Button -->
       <button id="mobile-menu-btn" class="md:hidden focus:outline-none">
         <svg class="w-8 h-8 text-blue-700" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="3" y1="6" x2="21" y2="6" />
-          <line x1="3" y1="12" x2="21" y2="12" />
-          <line x1="3" y1="18" x2="21" y2="18" />
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
         </svg>
       </button>
     </div>
-
-    <!-- Mobile Nav -->
     <div id="mobile-menu" class="md:hidden hidden bg-white px-6 py-4">
       <ul class="flex flex-col space-y-4 text-blue-700 font-semibold">
-        <li><a href="index.html" class="nav-link nav-link-active">Home</a></li>
-        <li><a href="catches.html" class="nav-link hover:underline">Catches</a></li>
-        <li><a href="submit.html" class="nav-link hover:underline">Submit</a></li>
-        <li><a href="about.html" class="nav-link hover:underline">About</a></li>
-        <li><a href="contact.html" class="nav-link hover:underline">Contact</a></li>
-        <li><a href="leaderboard.html" class="nav-link hover:underline">Leaderboard</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="catches.html" class="underline font-bold">Catches</a></li>
+        <li><a href="submit.html">Submit</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="leaderboard.html">Leaderboard</a></li>
       </ul>
     </div>
   </nav>
 
-  <!-- Main Content -->
-  <main class="mt-24 px-6 max-w-7xl mx-auto">
+  <!-- Content -->
+  <main class="max-w-7xl mx-auto px-6 pt-28 pb-16">
 
-    <!-- Header -->
-    <header class="mb-10 text-center fade-in">
+    <header class="mb-10 text-center">
       <h1 class="text-5xl font-extrabold text-blue-700">Latest Catches</h1>
-      <p class="text-blue-900 mt-3 max-w-xl mx-auto">See what the fishing legends are pulling up!</p>
+      <p class="text-blue-900 mt-2">See what the fishing legends are pulling up!</p>
     </header>
 
-    <!-- Filter Buttons -->
-    <section class="mb-12 fade-in flex flex-wrap justify-center gap-4">
+    <section class="flex flex-wrap justify-center gap-4 mb-12">
       <button class="btn-filter btn-filter-active" data-filter="all">All</button>
       <button class="btn-filter" data-filter="Flathead">Flathead</button>
       <button class="btn-filter" data-filter="Snapper">Snapper</button>
       <button class="btn-filter" data-filter="Squid">Squid</button>
     </section>
 
-    <!-- Catch Grid -->
-    <section class="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3" id="catch-grid">
+    <section id="catch-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
       <p class="text-center col-span-full text-gray-500">Loading catches...</p>
     </section>
-
   </main>
 
-  <!-- Footer -->
   <footer class="bg-blue-900 text-blue-200 py-10 mt-20">
     <div class="container mx-auto px-6 max-w-7xl grid grid-cols-1 md:grid-cols-3 gap-12">
       <div>
@@ -151,16 +132,16 @@
     </div>
   </footer>
 
-  <!-- Firebase Scripts -->
+  <!-- Firebase -->
   <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+
   <script>
-    // Firebase Config
     const firebaseConfig = {
       apiKey: "AIzaSyAVh3Le7yIXSHBRXb4v4KElY35_nbQO7Qc",
       authDomain: "flex-your-catch.firebaseapp.com",
       projectId: "flex-your-catch",
-      storageBucket:'flex-your-catch.firebasestorage.app',
+      storageBucket: "flex-your-catch.firebasestorage.app",
       messagingSenderId: "838037705109",
       appId: "1:838037705109:web:c4049435207c6aae06e69c"
     };
@@ -168,51 +149,55 @@
     firebase.initializeApp(firebaseConfig);
     const db = firebase.firestore();
 
-    const grid = document.getElementById("catch-grid");
+    const grid = document.getElementById('catch-grid');
 
-    db.collection("catches").orderBy("timestamp", "desc").get().then((snapshot) => {
-      grid.innerHTML = ""; // clear "loading" text
-      snapshot.forEach((doc) => {
-        const data = doc.data();
-        const card = document.createElement("article");
-        card.className = "card bg-white rounded-2xl shadow-md overflow-hidden transform transition-transform duration-300 cursor-pointer";
-        card.setAttribute("data-species", data.species);
-
-        card.innerHTML = `
-          <img src="${data.image}" alt="${data.species}" class="w-full h-64 object-cover" />
-          <div class="p-5 space-y-2">
-            <h3 class="text-xl font-bold text-blue-700">${data.species}</h3>
-            <p><strong>Size:</strong> ${data.size} cm</p>
-            <p><strong>Location:</strong> ${data.location}</p>
-            <p><strong>Angler:</strong> ${data.angler}</p>
-          </div>
-        `;
-
-        grid.appendChild(card);
+    // Load catches
+    db.collection('catches').orderBy('timestamp', 'desc').get()
+      .then(snapshot => {
+        grid.innerHTML = '';
+        snapshot.forEach(doc => {
+          const data = doc.data();
+          const card = document.createElement('article');
+          card.className = 'card overflow-hidden rounded-2xl shadow-md transition-transform duration-300';
+          card.setAttribute('data-species', data.species);
+          card.innerHTML = `
+            <img src="${data.image}" alt="${data.species}" class="w-full h-64 object-cover" />
+            <div class="p-5 space-y-2">
+              <h3 class="text-xl font-bold text-blue-700">${data.species}</h3>
+              <p><strong>Size:</strong> ${data.size} cm</p>
+              <p><strong>Location:</strong> ${data.location}</p>
+              <p><strong>Angler:</strong> ${data.angler}</p>
+            </div>
+          `;
+          grid.appendChild(card);
+        });
+      })
+      .catch(err => {
+        grid.innerHTML = `<p class="text-red-500 col-span-full text-center">Error loading catches: ${err.message}</p>`;
       });
-    }).catch((err) => {
-      grid.innerHTML = `<p class="text-red-500">Error loading catches: ${err.message}</p>`;
-    });
 
-    // Filter logic
+    // Filter buttons
     const buttons = document.querySelectorAll('.btn-filter');
     buttons.forEach(button => {
       button.addEventListener('click', () => {
         buttons.forEach(btn => btn.classList.remove('btn-filter-active'));
         button.classList.add('btn-filter-active');
         const filter = button.getAttribute('data-filter');
+
         document.querySelectorAll('.card').forEach(card => {
-          card.style.display = (filter === "all" || card.dataset.species === filter) ? "block" : "none";
+          card.style.display = (filter === 'all' || card.dataset.species === filter) ? 'block' : 'none';
         });
       });
     });
 
     // Mobile menu toggle
-    const btn = document.getElementById('mobile-menu-btn');
-    const menu = document.getElementById('mobile-menu');
-    btn.addEventListener('click', () => {
-      menu.classList.toggle('hidden');
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    mobileBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
     });
   </script>
 </body>
 </html>
+
