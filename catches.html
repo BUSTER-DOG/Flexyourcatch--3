@@ -6,6 +6,12 @@
   <title>Flex Your Catch - Catches</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
+    html, body {
+      width: 100%;
+      min-width: 100%;
+      overflow-x: hidden;
+    }
+
     ::-webkit-scrollbar {
       width: 8px;
     }
@@ -16,6 +22,7 @@
       background: #0284c7;
       border-radius: 9999px;
     }
+
     .fade-in {
       opacity: 0;
       transform: translateY(20px);
@@ -27,6 +34,7 @@
         transform: translateY(0);
       }
     }
+
     .btn-filter {
       background-color: #bfdbfe;
       color: #1e40af;
@@ -42,10 +50,6 @@
       background-color: #2563eb;
       color: white;
     }
-    .card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 10px 20px rgba(2, 132, 199, 0.4);
-    }
     .btn-primary {
       background-color: #2563eb;
       color: white;
@@ -57,104 +61,112 @@
     .btn-primary:hover {
       background-color: #1d4ed8;
     }
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 20px rgba(2, 132, 199, 0.4);
+    }
   </style>
 </head>
-<body class="bg-blue-50 text-gray-800 font-sans overflow-x-hidden">
 
-  <!-- Navbar -->
-  <nav class="fixed top-0 left-0 w-full bg-white shadow-md z-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center py-4">
-      <a href="index.html" class="text-3xl font-extrabold text-blue-700 flex items-center gap-2">
-        🎣 Flex Your Catch
-      </a>
-      <ul class="hidden md:flex space-x-6 text-blue-700 font-semibold items-center">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="catches.html" class="underline font-bold">Catches</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="leaderboard.html">Leaderboard</a></li>
-        <li><a href="Sponsors.html">Sponsors</a></li>
-        <li><a href="submit.html" class="btn-primary">📸 Submit Your Catch</a></li>
-      </ul>
-      <button id="mobile-menu-btn" class="md:hidden focus:outline-none">
-        <svg class="w-8 h-8 text-blue-700" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="3" y1="6" x2="21" y2="6" />
-          <line x1="3" y1="12" x2="21" y2="12" />
-          <line x1="3" y1="18" x2="21" y2="18" />
-        </svg>
-      </button>
-    </div>
-    <div id="mobile-menu" class="md:hidden hidden bg-white px-6 py-4">
-      <ul class="flex flex-col space-y-4 text-blue-700 font-semibold">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="catches.html">Catches</a></li>
-        <li><a href="submit.html">Submit</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="leaderboard.html">Leaderboard</a></li>
-      </ul>
-    </div>
-  </nav>
+<body class="bg-blue-50 text-gray-800 font-sans w-full min-w-full overflow-x-hidden">
+  <div class="w-full">
 
-  <!-- Main Content -->
-  <main class="mt-24 w-full">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+    <!-- Navbar -->
+    <nav class="fixed top-0 left-0 w-full bg-white shadow-md z-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center py-4">
+        <a href="index.html" class="text-3xl font-extrabold text-blue-700 flex items-center gap-2">
+          🎣 Flex Your Catch
+        </a>
+        <ul class="hidden md:flex space-x-6 text-blue-700 font-semibold items-center">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="catches.html" class="underline font-bold">Catches</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="leaderboard.html">Leaderboard</a></li>
+          <li><a href="Sponsors.html">Sponsors</a></li>
+          <li><a href="submit.html" class="btn-primary">📸 Submit Your Catch</a></li>
+        </ul>
+        <button id="mobile-menu-btn" class="md:hidden focus:outline-none">
+          <svg class="w-8 h-8 text-blue-700" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="18" x2="21" y2="18" />
+          </svg>
+        </button>
+      </div>
+      <div id="mobile-menu" class="md:hidden hidden bg-white px-6 py-4">
+        <ul class="flex flex-col space-y-4 text-blue-700 font-semibold">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="catches.html">Catches</a></li>
+          <li><a href="submit.html">Submit</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="leaderboard.html">Leaderboard</a></li>
+        </ul>
+      </div>
+    </nav>
 
-      <!-- Header -->
-      <header class="text-center fade-in">
-        <h1 class="text-5xl font-extrabold text-blue-700">Latest Catches</h1>
-        <p class="text-blue-900 mt-3 max-w-xl mx-auto">See what the fishing legends are pulling up!</p>
-      </header>
+    <!-- Main Content -->
+    <main class="mt-24 w-full">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
 
-      <!-- Filters -->
-      <section class="fade-in flex flex-wrap justify-center gap-4">
-        <button class="btn-filter btn-filter-active" data-filter="all">All</button>
-        <button class="btn-filter" data-filter="Flathead">Flathead</button>
-        <button class="btn-filter" data-filter="Snapper">Snapper</button>
-        <button class="btn-filter" data-filter="Squid">Squid</button>
-      </section>
+        <!-- Header -->
+        <header class="text-center fade-in">
+          <h1 class="text-5xl font-extrabold text-blue-700">Latest Catches</h1>
+          <p class="text-blue-900 mt-3 max-w-xl mx-auto">See what the fishing legends are pulling up!</p>
+        </header>
 
-      <!-- Catch Grid -->
-      <section class="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3" id="catch-grid">
-        <p class="text-center col-span-full text-gray-500">Loading catches...</p>
-      </section>
+        <!-- Filters -->
+        <section class="fade-in flex flex-wrap justify-center gap-4">
+          <button class="btn-filter btn-filter-active" data-filter="all">All</button>
+          <button class="btn-filter" data-filter="Flathead">Flathead</button>
+          <button class="btn-filter" data-filter="Snapper">Snapper</button>
+          <button class="btn-filter" data-filter="Squid">Squid</button>
+        </section>
 
-    </div>
-  </main>
+        <!-- Catch Grid -->
+        <section class="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3" id="catch-grid">
+          <p class="text-center col-span-full text-gray-500">Loading catches...</p>
+        </section>
 
-  <!-- Footer -->
-  <footer class="bg-blue-900 text-blue-200 py-10 mt-20 w-full">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-        <div>
-          <h4 class="text-xl font-bold mb-4">Flex Your Catch</h4>
-          <p>© 2025 Flex Your Catch. All rights reserved.</p>
-        </div>
-        <div>
-          <h4 class="text-xl font-bold mb-4">Contact</h4>
-          <p>Email: support@flexyourcatch.com</p>
-          <p>Phone: +61 123 456 789</p>
-        </div>
-        <div>
-          <h4 class="text-xl font-bold mb-4">Follow Us</h4>
-          <div class="flex space-x-6 items-center">
-            <a href="https://www.facebook.com/FlexYourCatch" target="_blank">
-              <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook" class="w-7 h-7 object-contain invert" />
-            </a>
-            <a href="https://twitter.com/FlexYourCatch" target="_blank">
-              <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/x.svg" alt="Twitter" class="w-7 h-7 object-contain invert" />
-            </a>
-            <a href="https://www.instagram.com/FlexYourCatch" target="_blank">
-              <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram" class="w-7 h-7 object-contain invert" />
-            </a>
-            <a href="https://www.youtube.com/@FlexYourCatch" target="_blank">
-              <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg" alt="YouTube" class="w-7 h-7 object-contain invert" />
-            </a>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-blue-900 text-blue-200 py-10 mt-20 w-full">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+          <div>
+            <h4 class="text-xl font-bold mb-4">Flex Your Catch</h4>
+            <p>© 2025 Flex Your Catch. All rights reserved.</p>
+          </div>
+          <div>
+            <h4 class="text-xl font-bold mb-4">Contact</h4>
+            <p>Email: support@flexyourcatch.com</p>
+            <p>Phone: +61 123 456 789</p>
+          </div>
+          <div>
+            <h4 class="text-xl font-bold mb-4">Follow Us</h4>
+            <div class="flex space-x-6 items-center">
+              <a href="https://www.facebook.com/FlexYourCatch" target="_blank">
+                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" class="w-7 h-7 invert" />
+              </a>
+              <a href="https://twitter.com/FlexYourCatch" target="_blank">
+                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/x.svg" class="w-7 h-7 invert" />
+              </a>
+              <a href="https://www.instagram.com/FlexYourCatch" target="_blank">
+                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" class="w-7 h-7 invert" />
+              </a>
+              <a href="https://www.youtube.com/@FlexYourCatch" target="_blank">
+                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg" class="w-7 h-7 invert" />
+              </a>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </footer>
+    </footer>
+
+  </div>
 
   <!-- Firebase -->
   <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
@@ -178,6 +190,7 @@
         grid.innerHTML = `<p class="text-center col-span-full text-gray-500">No catches yet. Be the first to submit!</p>`;
         return;
       }
+
       grid.innerHTML = "";
       snapshot.forEach(doc => {
         const data = doc.data();
@@ -185,7 +198,7 @@
         card.className = "card bg-white rounded-2xl shadow-md overflow-hidden transform transition-transform duration-300 cursor-pointer mx-auto w-full max-w-md";
         card.setAttribute("data-species", data.species);
         card.innerHTML = `
-          <img loading="lazy" src="${data.image}" alt="${data.species || 'Catch image'}" class="w-full h-64 object-cover" />
+          <img loading="lazy" src="${data.image}" alt="${data.species}" class="w-full h-64 object-cover" />
           <div class="p-5 space-y-2">
             <h3 class="text-xl font-bold text-blue-700">${data.species}</h3>
             <p><strong>Size:</strong> ${data.size} cm</p>
